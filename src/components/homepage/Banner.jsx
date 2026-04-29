@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import TileMarquee from "./Marque";
+
 
 const BannerPage = () => {
   return (
@@ -21,9 +21,7 @@ const BannerPage = () => {
             Browse Now
           </button>
         </Link>
-
       </div>
-      <TileMarquee/>
     </section>
   );
 };

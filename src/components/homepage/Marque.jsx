@@ -5,11 +5,11 @@ import { FaStar, FaFire, FaLeaf, FaGem, FaHome, FaCubes } from "react-icons/fa";
 
 const TileMarquee = () => {
   return (
-    <div className="w-full border-y bg-white py-6 my-4 text-lg ">
+    <div className="w-full md:w-9/12 mx-auto border-y bg-white py-6 my-4 text-lg ">
       <Marquee
         speed={45}
         pauseOnHover={true}
-        pauseOnClick={true} // ✅ mobile touch pause support
+        pauseOnClick={true} 
         gradient={false}
       >
         <span className="mx-6 flex items-center gap-2 text-gray-700 font-semibold animate__animated animate__fadeInRight">
