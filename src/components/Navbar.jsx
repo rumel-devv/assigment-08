@@ -17,20 +17,20 @@ const Navbar = () => {
   return (
     <nav className="w-full md:w-10/12 mx-auto py-3 px-2 relative">
       <div className="flex justify-between items-center">
-        <div className="flex  items-center gap-2 -ml-6 md:ml-0">
-          <Link href="/" className="text-purple-700 text-2xl font-bold">
-            TilesMart
+        <div className="flex  items-center gap-2 ">
+          <Link href="/" className="text-blue-700 text-2xl font-bold">
+           TilesGallery
           </Link>
         </div>
-        <ul className="hidden md:flex gap-6 text-sm font-medium">
+        <ul className="hidden md:flex gap-6 text-md font-medium">
           {navLinks.map((link) => (
             <li key={link.href}>
               <Link
                 href={link.href}
                 className={`transition ${
                   pathname === link.href
-                    ? "bg-purple-700 border-b-2 text-white py-1 px-3 rounded-md"
-                    : "text-gray-600 hover:text-purple-600"
+                    ? "bg-blue-700 border-b-2 text-white py-1 px-3 rounded-md"
+                    : "text-gray-600 hover:text-blue-600"
                 }`}
               >
                 {link.name}
@@ -41,7 +41,7 @@ const Navbar = () => {
 
         <div className="hidden md:block">
           <Link href="/login">
-            <button className="px-4 py-1.5 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition">
+            <button className="px-4 py-1.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
               Login
             </button>
           </Link>
@@ -65,8 +65,8 @@ const Navbar = () => {
                 onClick={() => setOpen(false)}
                 className={`transition ${
                   pathname === link.href
-                    ? "text-purple-700"
-                    : "text-gray-600 hover:text-purple-600"
+                    ? "text-blue-700"
+                    : "text-gray-600 hover:text-blue-600"
                 }`}
               >
                 {link.name}
@@ -75,7 +75,7 @@ const Navbar = () => {
           ))}
 
           <Link href="/login" onClick={() => setOpen(false)}>
-            <button className="px-4 py-1.5 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition">
+            <button className="px-4 py-1.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
               Login
             </button>
           </Link>
