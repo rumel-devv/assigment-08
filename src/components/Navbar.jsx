@@ -1,8 +1,8 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { FiMenu, FiX } from "react-icons/fi";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -12,20 +12,16 @@ const navLinks = [
 
 const Navbar = () => {
   const pathname = usePathname();
+  const [open, setOpen] = useState(false);
 
   return (
-    <nav className="w-full md:w-10/12 mx-auto py-4 px-2">
+    <nav className="w-full md:w-10/12 mx-auto py-3 px-2 relative">
       <div className="flex justify-between items-center">
-
-        {/* Logo */}
-        <div className="flex items-center gap-2">
-          <Image src="/logo.png" width={48} height={48} alt="Logo" />
+        <div className="flex  items-center gap-2 -ml-6 md:ml-0">
           <Link href="/" className="text-purple-700 text-2xl font-bold">
             TilesMart
           </Link>
         </div>
-
-        {/* Nav Links */}
         <ul className="hidden md:flex gap-6 text-sm font-medium">
           {navLinks.map((link) => (
             <li key={link.href}>
@@ -33,7 +29,7 @@ const Navbar = () => {
                 href={link.href}
                 className={`transition ${
                   pathname === link.href
-                    ? "text-purple-700 border-b-2 border-purple-700 pb-1"
+                    ? "bg-purple-700 border-b-2 text-white py-1 px-3 rounded-md"
                     : "text-gray-600 hover:text-purple-600"
                 }`}
               >
@@ -43,14 +39,7 @@ const Navbar = () => {
           ))}
         </ul>
 
-        {/* Buttons */}
-        <div className="space-x-3">
-          {/* <Link href="/signup">
-            <button className="px-4 py-1.5 border border-purple-600 text-black rounded-lg hover:bg-purple-600 hover:text-white transition">
-              SignUp
-            </button>
-          </Link> */}
-
+        <div className="hidden md:block">
           <Link href="/login">
             <button className="px-4 py-1.5 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition">
               Login
@@ -58,6 +47,39 @@ const Navbar = () => {
           </Link>
         </div>
 
+        <button onClick={() => setOpen(!open)} className="md:hidden text-2xl">
+          {open ? <FiX /> : <FiMenu />}
+        </button>
+      </div>
+
+      <div
+        className={`md:hidden absolute left-0 w-full bg-white shadow-md transition-all duration-300 ${
+          open ? "top-full opacity-100" : "-top-75 opacity-0"
+        }`}
+      >
+        <ul className="flex flex-col items-center gap-4 py-6 text-sm font-medium">
+          {navLinks.map((link) => (
+            <li key={link.href}>
+              <Link
+                href={link.href}
+                onClick={() => setOpen(false)}
+                className={`transition ${
+                  pathname === link.href
+                    ? "text-purple-700"
+                    : "text-gray-600 hover:text-purple-600"
+                }`}
+              >
+                {link.name}
+              </Link>
+            </li>
+          ))}
+
+          <Link href="/login" onClick={() => setOpen(false)}>
+            <button className="px-4 py-1.5 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition">
+              Login
+            </button>
+          </Link>
+        </ul>
       </div>
     </nav>
   );
