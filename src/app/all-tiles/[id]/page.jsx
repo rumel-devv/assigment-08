@@ -10,76 +10,88 @@ const TileDetailsPage = async ({ params }) => {
   const tile = tiles.find((t) => t.id === id);
 
   return (
-    <div className="w-full md:w-10/12 mx-auto px-4 py-10">
+    <div className="w-full md:w-10/12 mx-auto px-4 py-12">
 
       {/* Back */}
       <Link href="/all-tiles">
-        <p className="text-blue-600 mb-6 hover:underline">
-          ← Back to Tiles
+        <p className="text-sm text-gray-500 mb-8 hover:text-blue-600 transition">
+          ← Back to Home
         </p>
       </Link>
 
       {/* Main Card */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 bg-white border rounded-2xl shadow-lg overflow-hidden animate__animated animate__fadeInUp">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 bg-white/70 backdrop-blur-lg border border-gray-200 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden p-5">
 
         {/* Image Section */}
-        <div className="relative group">
+        <div className="relative group rounded-2xl overflow-hidden">
           <Image
             src={tile.image}
             alt={tile.title}
             width={700}
             height={700}
-            className="w-full h-[400px] object-cover group-hover:scale-110 transition-transform duration-500"
+            className="w-full h-[420px] object-cover group-hover:scale-105 transition duration-500"
           />
 
-          {/* Overlay Badge */}
-          <span className="absolute top-4 left-4 bg-blue-600 text-white text-xs px-3 py-1 rounded-full capitalize shadow-md">
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition"></div>
+
+          {/* Badge */}
+          <span className="absolute top-4 left-4 bg-blue-600/90 backdrop-blur text-white text-xs px-4 py-1.5 rounded-full shadow">
             {tile.category}
           </span>
         </div>
 
         {/* Content Section */}
-        <div className="flex flex-col justify-center gap-5 p-6">
+        <div className="flex flex-col justify-center gap-6 p-4">
 
           {/* Title */}
-          <h1 className="text-3xl font-bold text-gray-800 leading-tight">
+          <h1 className="text-4xl font-semibold text-gray-900 leading-tight">
             {tile.title}
           </h1>
 
           {/* Description */}
-          <p className="text-gray-500 leading-relaxed">
+          <p className="text-gray-600 leading-relaxed text-[15px]">
             {tile.description}
           </p>
 
           {/* Info Grid */}
-          <div className="grid grid-cols-2 gap-3 text-sm">
+          <div className="grid grid-cols-2 gap-4 text-sm">
 
-            <div className="p-3 bg-gray-50 rounded-lg">
-              <p className="text-gray-400">Material</p>
-              <p className="font-medium text-gray-700">{tile.material}</p>
+            <div className="p-4 bg-gray-50/80 backdrop-blur border rounded-xl hover:shadow-md transition">
+              <p className="text-gray-400 text-xs">Material</p>
+              <p className="font-semibold text-gray-800">
+                {tile.material}
+              </p>
             </div>
 
-            <div className="p-3 bg-gray-50 rounded-lg">
-              <p className="text-gray-400">Dimensions</p>
-              <p className="font-medium text-gray-700">{tile.dimensions}</p>
+            <div className="p-4 bg-gray-50/80 backdrop-blur border rounded-xl hover:shadow-md transition">
+              <p className="text-gray-400 text-xs">Dimensions</p>
+              <p className="font-semibold text-gray-800">
+                {tile.dimensions}
+              </p>
             </div>
 
           </div>
 
           {/* Price */}
-          <div className="flex items-end gap-2 mt-2">
-            <h2 className="text-3xl font-bold text-blue-600">
-              ${tile.price}
-            </h2>
-            <span className="text-sm text-gray-400">
-              {tile.currency}
-            </span>
-          </div>
+          <div className="flex items-end justify-between mt-2">
 
-          {/* Button */}
-          <button className="mt-3 w-full bg-blue-600 text-white py-3 rounded-xl hover:bg-blue-700 transition-all duration-300 shadow-md animate__animated animate__pulse">
-            Buy Now
-          </button>
+            <div>
+              <p className="text-xs text-gray-400">Price</p>
+              <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-blue-500 text-transparent bg-clip-text">
+                ${tile.price}
+              </h2>
+              <span className="text-sm text-gray-400">
+                {tile.currency}
+              </span>
+            </div>
+
+            {/* Button */}
+            <button className="px-8 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
+              Buy Now
+            </button>
+
+          </div>
 
         </div>
       </div>
