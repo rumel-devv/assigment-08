@@ -45,7 +45,7 @@ const RegisterPage = () => {
   };
 
   return (
-    <div className="h-[80vh] flex items-center justify-center bg-linear-to-br from-blue-50 via-white to-blue-100 px-4">
+    <div className="h-[80vh] md:min-h-screen flex items-center justify-center bg-linear-to-br from-blue-50 via-white to-blue-100 px-4">
       <div className="w-full max-w-md bg-white/70 backdrop-blur-xl border border-gray-200 shadow-2xl rounded-3xl p-4 md:p-8">
         <h1 className="text-3xl font-semibold text-gray-900 text-center mb-2">
           Create your Account

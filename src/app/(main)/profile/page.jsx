@@ -15,7 +15,7 @@ const ProfilePage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
+    <div className="h-[80vh] md:min-h-screen bg-gray-50 flex items-center justify-center px-4">
       <div className="w-full max-w-2xl bg-white shadow-lg rounded-2xl p-6 md:p-10">
      
         <div className="flex flex-col items-center text-center">
@@ -67,14 +67,6 @@ const ProfilePage = () => {
             Logout
           </button>
            <UpdateProfile/>
-          {/* <button
-            onClick={handleLogout}
-            className="flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-lg transition"
-          >
-            <FaUserEdit/>
-            Edit profile
-          </button> */}
-
         </div>
       </div>
     </div>

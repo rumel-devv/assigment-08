@@ -1,4 +1,4 @@
-"use client";
+'use client'
 
 import Link from "next/link";
 import { FiHome, FiArrowLeft } from "react-icons/fi";
@@ -9,22 +9,22 @@ export default function NotFound() {
 
       <div className="text-center max-w-md animate__animated animate__fadeInUp">
 
-        {/* 404 Number */}
+  
         <h1 className="text-7xl md:text-8xl font-bold text-blue-600">
           404
         </h1>
 
-        {/* Title */}
+
         <h2 className="text-2xl md:text-3xl font-semibold text-gray-800 mt-4">
           Page Not Found
         </h2>
 
-        {/* Description */}
+
         <p className="text-gray-500 mt-3">
           The page you are looking for doesn’t exist or has been moved.
         </p>
 
-        {/* Buttons */}
+
         <div className="flex flex-col sm:flex-row gap-3 justify-center mt-6">
 
           <button

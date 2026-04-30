@@ -2,15 +2,16 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FiLogIn, FiMenu, FiX } from "react-icons/fi";
+import { FiLogIn, FiMenu, FiX, FiHome, FiUser } from "react-icons/fi";
+import { FaThLarge } from "react-icons/fa";
 import { authClient } from "@/lib/auth-client";
 import { Avatar } from "@heroui/react";
 import { CiLogout } from "react-icons/ci";
 
 const navLinks = [
-  { name: "Home", href: "/" },
-  { name: "All Tiles", href: "/all-tiles" },
-  { name: "Profile", href: "/profile" },
+  { name: "Home", href: "/", icon: <FiHome /> },
+  { name: "All Tiles", href: "/all-tiles", icon: <FaThLarge /> },
+  { name: "Profile", href: "/profile", icon: <FiUser /> },
 ];
 
 const Navbar = () => {
@@ -29,30 +30,31 @@ const Navbar = () => {
     <nav className="w-full md:w-10/12 mx-auto py-3 px-2 relative z-50 bg-white/80 backdrop-blur-md">
       <div className="flex justify-between items-center">
         
-        {/* Logo */}
+
         <Link href="/" className="text-blue-700 text-2xl font-bold">
           TilesGallery
         </Link>
 
-        {/* Desktop Menu */}
+
         <ul className="hidden md:flex gap-6 text-md font-medium">
           {navLinks.map((link) => (
             <li key={link.href}>
               <Link
                 href={link.href}
-                className={`transition ${
+                className={`transition flex items-center gap-2 ${
                   pathname === link.href
                     ? "bg-blue-700 text-white py-1 px-3 rounded-md"
                     : "text-gray-600 hover:text-blue-600"
                 }`}
               >
+                {link.icon}
                 {link.name}
               </Link>
             </li>
           ))}
         </ul>
 
-        {/* Desktop Auth */}
+
         {!user ? (
           <div className="hidden md:block">
             <Link href="/login">
@@ -91,7 +93,6 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile Menu */}
       <div
         className={`md:hidden fixed left-0 top-16 w-full bg-white shadow-xl border-t transition-all duration-300 z-40 ${
           open ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4 pointer-events-none"
@@ -103,12 +104,13 @@ const Navbar = () => {
               <Link
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className={`block py-2 w-full transition ${
+                className={`flex items-center justify-center gap-2 py-2 w-full transition ${
                   pathname === link.href
                     ? "bg-blue-700 text-white"
                     : "text-gray-600 hover:text-blue-600"
                 }`}
               >
+                {link.icon}
                 {link.name}
               </Link>
             </li>
@@ -117,7 +119,7 @@ const Navbar = () => {
           {!user ? (
             <Link href="/login" onClick={() => setOpen(false)}>
               <button className="px-6 py-2 flex gap-1.5 items-center bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
-                 <FiLogIn />
+                <FiLogIn />
                 Login
               </button>
             </Link>
@@ -126,7 +128,7 @@ const Navbar = () => {
               onClick={handleSignOut}
               className="px-6 py-2 flex gap-1.5 items-center bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
             >
-               <CiLogout />
+              <CiLogout />
               Logout
             </button>
           )}
