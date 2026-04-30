@@ -3,25 +3,33 @@
 import { UpdateProfile } from "@/components/homepage/UpdateModal";
 import { authClient } from "@/lib/auth-client";
 import { Avatar } from "@heroui/react";
+import { useRouter } from "next/navigation";
 import { FaUserEdit } from "react-icons/fa";
 import { FiMail, FiUser, FiCalendar, FiLogOut } from "react-icons/fi";
 
 const ProfilePage = () => {
   const userData = authClient.useSession();
   const user = userData.data?.user;
+   const router = useRouter();
 
   const handleLogout = async () => {
     await authClient.signOut();
+    router.push('/')
   };
 
   return (
     <div className="h-[80vh] md:min-h-screen bg-gray-50 flex items-center justify-center px-4">
       <div className="w-full max-w-2xl bg-white shadow-lg rounded-2xl p-6 md:p-10">
-     
         <div className="flex flex-col items-center text-center">
-          <Avatar className="w-24 h-24">
-            <Avatar.Image src={user?.image} referrerPolicy="no-referrer" />
-            <Avatar.Fallback>{user?.name?.charAt(0)}</Avatar.Fallback>
+          <Avatar className="w-24 h-24 rounded-full overflow-hidden border border-gray-200">
+            <Avatar.Image
+              src={user?.image}
+              referrerPolicy="no-referrer"
+              className="w-full h-full object-cover object-center transition-transform duration-300 hover:scale-110"
+            />
+            <Avatar.Fallback className="flex items-center justify-center text-lg font-semibold bg-gray-200">
+              {user?.name?.charAt(0)}
+            </Avatar.Fallback>
           </Avatar>
 
           <h1 className="mt-4 text-2xl font-bold text-gray-800">
@@ -32,7 +40,6 @@ const ProfilePage = () => {
         </div>
 
         <div className="mt-8 grid gap-4">
-          
           <div className="flex items-center gap-3 bg-gray-100 p-4 rounded-xl">
             <FiUser className="text-blue-600 text-xl" />
             <div>
@@ -45,7 +52,7 @@ const ProfilePage = () => {
             <FiMail className="text-blue-600 text-xl" />
             <div>
               <p className="text-sm text-gray-500">Email</p>
-              <p className="font-medium">{user?.email }</p>
+              <p className="font-medium">{user?.email}</p>
             </div>
           </div>
 
@@ -66,7 +73,7 @@ const ProfilePage = () => {
             <FiLogOut />
             Logout
           </button>
-           <UpdateProfile/>
+          <UpdateProfile />
         </div>
       </div>
     </div>
