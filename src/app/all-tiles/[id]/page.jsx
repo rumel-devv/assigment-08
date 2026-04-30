@@ -10,7 +10,7 @@ const TileDetailsPage = async ({ params }) => {
   const tile = tiles.find((t) => t.id === id);
 
   return (
-    <div className="w-full md:w-10/12 mx-auto px-4 py-12">
+    <div className="w-full md:w-10/12 mx-auto px-4 py-12 animate__animated animate__fadeInDown">
 
       {/* Back */}
       <Link href="/all-tiles">
@@ -29,11 +29,11 @@ const TileDetailsPage = async ({ params }) => {
             alt={tile.title}
             width={700}
             height={700}
-            className="w-full h-[420px] object-cover group-hover:scale-105 transition duration-500"
+            className="w-full h-105 object-cover group-hover:scale-105 transition duration-500"
           />
 
           {/* Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition"></div>
+          <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition"></div>
 
           {/* Badge */}
           <span className="absolute top-4 left-4 bg-blue-600/90 backdrop-blur text-white text-xs px-4 py-1.5 rounded-full shadow">
@@ -78,7 +78,7 @@ const TileDetailsPage = async ({ params }) => {
 
             <div>
               <p className="text-xs text-gray-400">Price</p>
-              <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-blue-500 text-transparent bg-clip-text">
+              <h2 className="text-4xl font-bold bg-linear-to-r from-blue-600 to-blue-500 text-transparent bg-clip-text">
                 ${tile.price}
               </h2>
               <span className="text-sm text-gray-400">
@@ -87,7 +87,7 @@ const TileDetailsPage = async ({ params }) => {
             </div>
 
             {/* Button */}
-            <button className="px-8 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
+            <button className="px-8 py-3 rounded-xl bg-linear-to-r from-blue-600 to-blue-700 text-white shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
               Buy Now
             </button>
 

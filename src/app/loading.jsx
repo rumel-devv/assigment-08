@@ -1,11 +1,12 @@
-import React from 'react';
+import { Spinner } from "@heroui/react";
+import React from "react";
 
-const loading = () => {
-    return (
-        <div>
-            <h2 className='text-4xl text-red-500'>Loading</h2>
-        </div>
-    );
+const Loading = () => {
+  return (
+    <div className="min-h-[40vh] flex items-center justify-center">
+      <Spinner size="xl" color="accent" />
+    </div>
+  );
 };
 
-export default loading;
+export default Loading;
