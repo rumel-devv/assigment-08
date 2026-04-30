@@ -39,7 +39,7 @@ const RegisterPage = () => {
     toast.error(error.message);
   } else {
     toast.success("Signup Successful ");
-    router.push("/");
+    router.push("/login");
   }
 
    
