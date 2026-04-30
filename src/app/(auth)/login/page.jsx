@@ -1,9 +1,7 @@
 "use client";
-
 import { authClient } from "@/lib/auth-client";
 import {
   Button,
-  Description,
   FieldError,
   Form,
   Input,
@@ -12,29 +10,26 @@ import {
 } from "@heroui/react";
 import Link from "next/link";
 import { FaGoogle } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 const LoginPage = () => {
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
 
+    const { data, error } = await authClient.signIn.email({
+      email: email,
+      password: password,
+      callbackURL: "/",
+    });
 
-      const handleLogin= async (e) => {
-        e.preventDefault();
-        const email = e.target.email.value;
-        const password = e.target.password.value;
-    
-        const { data, error } = await authClient.signIn.email({
-          email: email,
-          password: password,
-          callbackURL:"/"
-        });
-
-        if(!error){
-            alert('Login Successfull')
-        }
-        if(error){
-            alert(error.message)
-        }
-    
-      };
+    if (error) {
+      toast.error(error.message);
+    } else {
+      toast.success("Login Successful");
+    }
+  };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-blue-50 via-white to-blue-100 px-4">
@@ -110,10 +105,11 @@ const LoginPage = () => {
           <div>
             <h1>
               Do not have a account ?{" "}
-              <span className="text-blue-500" ><Link href="/register"> Register </Link>{" "}</span>
+              <span className="text-blue-500">
+                <Link href="/register"> Register </Link>{" "}
+              </span>
             </h1>
           </div>
-
         </Form>
       </div>
     </div>

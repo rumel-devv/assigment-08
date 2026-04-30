@@ -1,9 +1,7 @@
 "use client";
-
 import { authClient } from "@/lib/auth-client";
 import {
   Button,
-  Description,
   FieldError,
   Form,
   Input,
@@ -11,11 +9,12 @@ import {
   TextField,
 } from "@heroui/react";
 import Link from "next/link";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { FaGoogle } from "react-icons/fa";
 import { toast } from "react-toastify";
 
 const RegisterPage = () => {
+   const router = useRouter();
   const handleGoogleLogin = async () => {
     const data = await authClient.signIn.social({
       provider: "google",
@@ -36,13 +35,14 @@ const RegisterPage = () => {
       image: image,
     });
 
-    if (!error) {
-      toast.success("Singup Successfull");
-      redirect("/login");
-    }
     if (error) {
-      toast.error(error.message);
-    }
+    toast.error(error.message);
+  } else {
+    toast.success("Signup Successful ");
+    router.push("/");
+  }
+
+   
   };
 
   return (
