@@ -2,7 +2,10 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FiMenu, FiX } from "react-icons/fi";
+import { FiLogIn, FiMenu, FiX } from "react-icons/fi";
+import { authClient } from "@/lib/auth-client";
+import { Avatar } from "@heroui/react";
+import { CiLogout } from "react-icons/ci";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -14,14 +17,24 @@ const Navbar = () => {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
+  const userData = authClient.useSession();
+  const user = userData.data?.user;
+
+  const handleSignOut = async () => {
+    await authClient.signOut();
+    setOpen(false);
+  };
+
   return (
-    <nav className="w-full md:w-10/12 mx-auto py-3 px-2 relative">
+    <nav className="w-full md:w-10/12 mx-auto py-3 px-2 relative z-50 bg-white/80 backdrop-blur-md">
       <div className="flex justify-between items-center">
-        <div className="flex  items-center gap-2 ">
-          <Link href="/" className="text-blue-700 text-2xl font-bold">
-           TilesGallery
-          </Link>
-        </div>
+        
+        {/* Logo */}
+        <Link href="/" className="text-blue-700 text-2xl font-bold">
+          TilesGallery
+        </Link>
+
+        {/* Desktop Menu */}
         <ul className="hidden md:flex gap-6 text-md font-medium">
           {navLinks.map((link) => (
             <li key={link.href}>
@@ -29,7 +42,7 @@ const Navbar = () => {
                 href={link.href}
                 className={`transition ${
                   pathname === link.href
-                    ? "bg-blue-700 border-b-2 text-white py-1 px-3 rounded-md"
+                    ? "bg-blue-700 text-white py-1 px-3 rounded-md"
                     : "text-gray-600 hover:text-blue-600"
                 }`}
               >
@@ -39,33 +52,60 @@ const Navbar = () => {
           ))}
         </ul>
 
-        <div className="hidden md:block">
-          <Link href="/login">
-            <button className="px-4 py-1.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
-              Login
-            </button>
-          </Link>
-        </div>
+        {/* Desktop Auth */}
+        {!user ? (
+          <div className="hidden md:block">
+            <Link href="/login">
+              <button className="px-4 py-1.5 bg-blue-600 flex gap-1.5 items-center text-white rounded-lg hover:bg-blue-700 transition">
+                <FiLogIn />
+                Login
+              </button>
+            </Link>
+          </div>
+        ) : (
+          <div className="hidden md:flex gap-2 items-center">
+            <Avatar>
+              <Avatar.Image
+                alt="user"
+                src={user?.image}
+                referrerPolicy="no-referrer"
+              />
+              <Avatar.Fallback>{user?.name}</Avatar.Fallback>
+            </Avatar>
 
-        <button onClick={() => setOpen(!open)} className="md:hidden text-2xl">
+            <button
+              onClick={handleSignOut}
+              className="px-4 py-1.5 bg-blue-600 flex gap-1.5 items-center text-white rounded-lg hover:bg-blue-700 transition"
+            >
+              <CiLogout />
+              Logout
+            </button>
+          </div>
+        )}
+
+        <button
+          onClick={() => setOpen(!open)}
+          className="md:hidden text-2xl z-50"
+        >
           {open ? <FiX /> : <FiMenu />}
         </button>
       </div>
 
+      {/* Mobile Menu */}
       <div
-        className={`md:hidden absolute left-0 w-full bg-white shadow-md transition-all duration-300 ${
-          open ? "top-full opacity-100" : "-top-75 opacity-0"
+        className={`md:hidden fixed left-0 top-16 w-full bg-white shadow-xl border-t transition-all duration-300 z-40 ${
+          open ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4 pointer-events-none"
         }`}
       >
-        <ul className="flex flex-col items-center gap-4 py-6 text-sm font-medium">
+        <ul className="flex flex-col items-center gap-5 py-6 text-base font-medium">
           {navLinks.map((link) => (
-            <li key={link.href}>
+            <li key={link.href} className="w-full text-center">
               <Link
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className={`transition ${
+                className={`block py-2 w-full transition ${
                   pathname === link.href
-                    ? "text-blue-700"
+                    ? "bg-blue-700 text-white"
                     : "text-gray-600 hover:text-blue-600"
                 }`}
               >
@@ -74,11 +114,22 @@ const Navbar = () => {
             </li>
           ))}
 
-          <Link href="/login" onClick={() => setOpen(false)}>
-            <button className="px-4 py-1.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
-              Login
+          {!user ? (
+            <Link href="/login" onClick={() => setOpen(false)}>
+              <button className="px-6 py-2 flex gap-1.5 items-center bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
+                 <FiLogIn />
+                Login
+              </button>
+            </Link>
+          ) : (
+            <button
+              onClick={handleSignOut}
+              className="px-6 py-2 flex gap-1.5 items-center bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+            >
+               <CiLogout />
+              Logout
             </button>
-          </Link>
+          )}
         </ul>
       </div>
     </nav>

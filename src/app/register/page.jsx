@@ -11,8 +11,16 @@ import {
   TextField,
 } from "@heroui/react";
 import Link from "next/link";
+import { redirect } from "next/navigation";
+import { FaGoogle } from "react-icons/fa";
 
 const RegisterPage = () => {
+  const handleGoogleLogin = async () => {
+    const data = await authClient.signIn.social({
+      provider: "google",
+    });
+  };
+
   const handleRegister = async (e) => {
     e.preventDefault();
     const name = e.target.name.value;
@@ -27,12 +35,18 @@ const RegisterPage = () => {
       image: image,
     });
 
-    console.log(name, image, email, password);
+    if (!error) {
+      alert("Singup Successfull");
+      redirect("/login");
+    }
+    if (error) {
+      alert(error.message);
+    }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-blue-50 via-white to-blue-100 px-4">
-      <div className="w-full max-w-md bg-white/70 backdrop-blur-xl border border-gray-200 shadow-2xl rounded-3xl p-8">
+    <div className="h-[80vh] flex items-center justify-center bg-linear-to-br from-blue-50 via-white to-blue-100 px-4">
+      <div className="w-full max-w-md bg-white/70 backdrop-blur-xl border border-gray-200 shadow-2xl rounded-3xl p-4 md:p-8">
         <h1 className="text-3xl font-semibold text-gray-900 text-center mb-2">
           Create your Account
         </h1>
@@ -99,8 +113,19 @@ const RegisterPage = () => {
           >
             Create Account
           </Button>
+          <div>
+            <Button
+             onClick={handleGoogleLogin}
+              type="submit"
+              className="w-full bg-black hover:bg-gray-700 text-white rounded-xl shadow-md transition"
+            >
+              <span>
+                <FaGoogle />
+              </span>
+              Login with google
+            </Button>
+          </div>
 
-          {/* Login Link */}
           <div className="text-center text-sm text-gray-600">
             Already have an account?{" "}
             <Link href="/login" className="text-blue-500 hover:underline">

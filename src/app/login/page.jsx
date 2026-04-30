@@ -26,8 +26,14 @@ const LoginPage = () => {
           password: password,
           callbackURL:"/"
         });
+
+        if(!error){
+            alert('Login Successfull')
+        }
+        if(error){
+            alert(error.message)
+        }
     
-        console.log( email, password);
       };
 
   return (
@@ -98,16 +104,6 @@ const LoginPage = () => {
               className="w-full rounded-xl"
             >
               Reset
-            </Button>
-          </div>
-
-          <div>
-              <Button
-              type="submit"
-              className="w-full bg-black hover:bg-gray-700 text-white rounded-xl shadow-md transition"
-            >
-                <span><FaGoogle/></span>
-              Login with google
             </Button>
           </div>
 
