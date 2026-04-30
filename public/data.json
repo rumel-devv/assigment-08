@@ -2,145 +2,157 @@
   {
     "id": "tile_001",
     "title": "Ceramic Blue Tile",
-    "description": "Premium ceramic tile with glossy blue finish",
+    "description": "Premium ceramic tile with glossy blue finish designed for modern interiors. It offers a smooth surface, long-lasting durability, and is perfect for kitchens, bathrooms, and stylish wall decoration.",
     "image": "https://i.ibb.co.com/wFBmNR5v/image.png",
     "category": "ceramic",
     "price": 45.99,
     "currency": "USD",
     "dimensions": "60x60 cm",
     "material": "Ceramic",
-    "inStock": true
+    "inStock": true,
+    "rating": 4.6
   },
   {
     "id": "tile_002",
     "title": "Marble White Tile",
-    "description": "Elegant white marble tile for luxury interiors",
+    "description": "Elegant white marble tile crafted for luxury interiors with a polished surface and natural stone texture. Ideal for premium flooring and wall designs in modern homes and commercial spaces.",
     "image": "https://i.ibb.co.com/TJqjqBZ/image.png",
     "category": "marble",
     "price": 65.5,
     "currency": "USD",
     "dimensions": "80x80 cm",
     "material": "Marble",
-    "inStock": true
+    "inStock": true,
+    "rating": 4.8
   },
   {
     "id": "tile_003",
     "title": "Granite Black Tile",
-    "description": "Durable granite tile with polished black surface",
+    "description": "Durable granite tile with a polished black surface offering strong resistance against scratches and heavy usage. Perfect for high-traffic areas and modern architectural designs.",
     "image": "https://i.ibb.co.com/6RhpPyms/image.png",
     "category": "granite",
     "price": 70,
     "currency": "USD",
     "dimensions": "60x60 cm",
     "material": "Granite",
-    "inStock": false
+    "inStock": false,
+    "rating": 4.7
   },
   {
     "id": "tile_004",
     "title": "Wooden Texture Tile",
-    "description": "Wood-look tile for natural interior design",
+    "description": "Wood-look porcelain tile that combines natural wood aesthetics with the strength of ceramic. Ideal for creating warm, cozy, and modern interior spaces.",
     "image": "https://i.ibb.co.com/YFdF1RnB/image.png",
     "category": "wood",
     "price": 50.25,
     "currency": "USD",
     "dimensions": "120x20 cm",
     "material": "Porcelain",
-    "inStock": true
+    "inStock": true,
+    "rating": 4.5
   },
   {
     "id": "tile_005",
     "title": "Bathroom Mosaic Tile",
-    "description": "Small mosaic tiles ideal for bathrooms",
-   "image": "https://i.ibb.co.com/hxdCGCLK/image.png",
+    "description": "Small mosaic glass tiles specially designed for bathrooms and wet areas. They provide excellent water resistance, stylish patterns, and easy maintenance.",
+    "image": "https://i.ibb.co.com/hxdCGCLK/image.png",
     "category": "mosaic",
     "price": 35.75,
     "currency": "USD",
     "dimensions": "30x30 cm",
     "material": "Glass",
-    "inStock": true
+    "inStock": true,
+    "rating": 4.4
   },
   {
     "id": "tile_006",
     "title": "Outdoor Stone Tile",
-    "description": "Rough stone tile perfect for outdoor use",
-   "image": "https://i.ibb.co.com/k65P7mDC/image.png",
+    "description": "Rough natural stone tile designed for outdoor environments. It provides high durability, weather resistance, and a natural rustic look for patios and gardens.",
+    "image": "https://i.ibb.co.com/k65P7mDC/image.png",
     "category": "stone",
     "price": 55,
     "currency": "USD",
     "dimensions": "50x50 cm",
     "material": "Natural Stone",
-    "inStock": true
+    "inStock": true,
+    "rating": 4.6
   },
   {
     "id": "tile_007",
     "title": "Glossy Red Tile",
-    "description": "Bright red glossy tile for modern kitchens",
-   "image": "https://i.ibb.co.com/ZRLn2Nq2/image.png",
+    "description": "Bright red glossy ceramic tile designed for modern kitchens and accent walls. It adds a bold and vibrant look with a smooth reflective finish.",
+    "image": "https://i.ibb.co.com/ZRLn2Nq2/image.png",
     "category": "ceramic",
     "price": 42.99,
     "currency": "USD",
     "dimensions": "60x60 cm",
     "material": "Ceramic",
-    "inStock": true
+    "inStock": true,
+    "rating": 4.3
   },
   {
     "id": "tile_008",
     "title": "Concrete Finish Tile",
-    "description": "Industrial-style concrete finish tile",
-   "image": "https://i.ibb.co.com/4wJBKXhm/image.png",
+    "description": "Industrial-style concrete finish tile with a modern minimalist design. Ideal for lofts, offices, and contemporary architectural spaces.",
+    "image": "https://i.ibb.co.com/4wJBKXhm/image.png",
     "category": "concrete",
     "price": 48,
     "currency": "USD",
     "dimensions": "75x75 cm",
     "material": "Concrete",
-    "inStock": false
+    "inStock": false,
+    "rating": 4.2
   },
   {
     "id": "tile_009",
     "title": "Patterned Vintage Tile",
-    "description": "Classic vintage pattern tile for decoration",
+    "description": "Classic vintage-style decorative tile with artistic patterns. Perfect for adding a traditional and aesthetic touch to floors and walls.",
     "image": "https://i.ibb.co.com/Kj44MYBH/image.png",
     "category": "decorative",
     "price": 52.3,
     "currency": "USD",
     "dimensions": "45x45 cm",
     "material": "Ceramic",
-    "inStock": true
+    "inStock": true,
+    "rating": 4.7
   },
   {
     "id": "tile_010",
     "title": "Luxury Gold Vein Tile",
-    "description": "Premium tile with gold vein marble design",
-   "image": "https://i.ibb.co.com/mFcdZbtm/image.png",
+    "description": "Premium marble tile with elegant gold vein patterns. Designed for luxury interiors, hotels, and high-end architectural projects.",
+    "image": "https://i.ibb.co.com/mFcdZbtm/image.png",
     "category": "marble",
     "price": 85,
     "currency": "USD",
     "dimensions": "80x80 cm",
     "material": "Marble",
-    "inStock": true
+    "inStock": true,
+    "rating": 4.9
   },
   {
     "id": "tile_011",
     "title": "Matte Grey Tile",
-    "description": "Minimalist matte grey tile for modern homes",
+    "description": "Minimalist matte grey ceramic tile with a smooth non-glossy finish. Perfect for modern homes and clean interior designs.",
     "image": "https://i.ibb.co.com/20kymthJ/image.png",
     "category": "ceramic",
     "price": 44,
     "currency": "USD",
     "dimensions": "60x60 cm",
     "material": "Ceramic",
-    "inStock": true
+    "inStock": true,
+    "rating": 4.5
   },
   {
     "id": "tile_012",
     "title": "Outdoor Brick Tile",
-    "description": "Brick-style tile for outdoor walls and floors",
-   "image": "https://i.ibb.co.com/NdR0gZPj/image.png",
+    "description": "Brick-style clay tile designed for outdoor walls and flooring. It offers a traditional brick appearance with modern durability and strong weather resistance for long-term outdoor use.",
+    "image": "https://i.ibb.co.com/NdR0gZPj/image.png",
     "category": "brick",
     "price": 39.99,
     "currency": "USD",
     "dimensions": "40x20 cm",
     "material": "Clay",
-    "inStock": true
+    "inStock": true,
+    "rating": 4.3
   }
 ]

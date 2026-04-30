@@ -13,6 +13,12 @@ import { FaGoogle } from "react-icons/fa";
 import { toast } from "react-toastify";
 
 const LoginPage = () => {
+
+   const handleGoogleLogin = async () => {
+    const data = await authClient.signIn.social({
+      provider: "google",
+    });
+  };
   const handleLogin = async (e) => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -99,6 +105,18 @@ const LoginPage = () => {
               className="w-full rounded-xl"
             >
               Reset
+            </Button>
+          </div>
+          <div>
+            <Button
+             onClick={handleGoogleLogin}
+              type="submit"
+              className="w-full bg-black hover:bg-gray-700 text-white rounded-xl shadow-md transition"
+            >
+              <span>
+                <FaGoogle />
+              </span>
+              Login with google
             </Button>
           </div>
 

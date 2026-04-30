@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { FiLogIn, FiMenu, FiX, FiHome, FiUser } from "react-icons/fi";
 import { FaThLarge } from "react-icons/fa";
 import { authClient } from "@/lib/auth-client";
@@ -15,6 +15,7 @@ const navLinks = [
 ];
 
 const Navbar = () => {
+   const router = useRouter();
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
@@ -23,18 +24,16 @@ const Navbar = () => {
 
   const handleSignOut = async () => {
     await authClient.signOut();
+    router.push('/')
     setOpen(false);
   };
 
   return (
-    <nav className="w-full md:w-10/12 mx-auto py-3 px-2 relative z-50 bg-white/80 backdrop-blur-md">
+    <nav className="w-full shadow-xs md:w-10/12 mx-auto  px-2 relative z-50 bg-white/80 backdrop-blur-md py-5">
       <div className="flex justify-between items-center">
-        
-
         <Link href="/" className="text-blue-700 text-2xl font-bold">
           TilesGallery
         </Link>
-
 
         <ul className="hidden md:flex gap-6 text-md font-medium">
           {navLinks.map((link) => (
@@ -54,7 +53,6 @@ const Navbar = () => {
           ))}
         </ul>
 
-
         {!user ? (
           <div className="hidden md:block">
             <Link href="/login">
@@ -65,16 +63,19 @@ const Navbar = () => {
             </Link>
           </div>
         ) : (
-          <div className="hidden md:flex gap-2 items-center">
-            <Avatar>
-              <Avatar.Image
-                alt="user"
-                src={user?.image}
-                referrerPolicy="no-referrer"
-              />
-              <Avatar.Fallback>{user?.name}</Avatar.Fallback>
-            </Avatar>
-
+          <div className="hidden md:flex gap-2  items-center">
+          
+              <Avatar className="border-2  border-blue-400 rounded-full w-12 h-12">
+                <Avatar.Image
+                  alt="user"
+                  src={user?.image}
+                  width={120}
+                  height={120}
+                  referrerPolicy="no-referrer"
+                />
+                <Avatar.Fallback>{user?.name}</Avatar.Fallback>
+              </Avatar>
+         
             <button
               onClick={handleSignOut}
               className="px-4 py-1.5 bg-blue-600 flex gap-1.5 items-center text-white rounded-lg hover:bg-blue-700 transition"
@@ -95,7 +96,9 @@ const Navbar = () => {
 
       <div
         className={`md:hidden fixed left-0 top-16 w-full bg-white shadow-xl border-t transition-all duration-300 z-40 ${
-          open ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4 pointer-events-none"
+          open
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 -translate-y-4 pointer-events-none"
         }`}
       >
         <ul className="flex flex-col items-center gap-5 py-6 text-base font-medium">

@@ -21,7 +21,7 @@ const ProfilePage = () => {
     <div className="h-[80vh] md:min-h-screen bg-gray-50 flex items-center justify-center px-4">
       <div className="w-full max-w-2xl bg-white shadow-lg rounded-2xl p-6 md:p-10">
         <div className="flex flex-col items-center text-center">
-          <Avatar className="w-24 h-24 rounded-full overflow-hidden border border-gray-200">
+          <Avatar className="w-24 h-24 rounded-full overflow-hidden border-2 border-blue-700">
             <Avatar.Image
               src={user?.image}
               referrerPolicy="no-referrer"
@@ -68,7 +68,7 @@ const ProfilePage = () => {
         <div className="mt-8 flex gap-3 justify-center">
           <button
             onClick={handleLogout}
-            className="flex items-center gap-2 bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-lg transition"
+            className="flex items-center cursor-pointer gap-2 bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-lg transition"
           >
             <FiLogOut />
             Logout

@@ -5,7 +5,7 @@ import { FaStar, FaFire, FaLeaf, FaGem, FaHome, FaCubes } from "react-icons/fa";
 
 const TileMarquee = () => {
   return (
-    <div className="w-full md:w-9/12 mx-auto border-y bg-white py-6 my-4 text-lg ">
+    <div className="w-full md:w-10/12 mx-auto border-y bg-white py-6 my-4 text-lg ">
       <Marquee
         speed={45}
         pauseOnHover={true}
