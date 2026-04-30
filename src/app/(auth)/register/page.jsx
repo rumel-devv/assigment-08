@@ -13,6 +13,7 @@ import {
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { FaGoogle } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 const RegisterPage = () => {
   const handleGoogleLogin = async () => {
@@ -36,11 +37,11 @@ const RegisterPage = () => {
     });
 
     if (!error) {
-      alert("Singup Successfull");
+      toast.success("Singup Successfull");
       redirect("/login");
     }
     if (error) {
-      alert(error.message);
+      toast.error(error.message);
     }
   };
 
