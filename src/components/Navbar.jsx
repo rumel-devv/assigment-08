@@ -63,19 +63,19 @@ const Navbar = () => {
             </Link>
           </div>
         ) : (
-          <div className="hidden md:flex gap-2  items-center">
-          
-              <Avatar className="border-2  border-blue-400 rounded-full w-12 h-12">
+          <div className="hidden md:flex gap-3  items-center">
+              <Link href='/profile'>
+              <Avatar className="border-2  border-blue-400 rounded-full w-10 h-10">
                 <Avatar.Image
                   alt="user"
                   src={user?.image}
-                  width={120}
-                  height={120}
+                  width={100}
+                  height={100}
                   referrerPolicy="no-referrer"
                 />
                 <Avatar.Fallback>{user?.name}</Avatar.Fallback>
               </Avatar>
-         
+             </Link>
             <button
               onClick={handleSignOut}
               className="px-4 py-1.5 bg-blue-600 flex gap-1.5 items-center text-white rounded-lg hover:bg-blue-700 transition"

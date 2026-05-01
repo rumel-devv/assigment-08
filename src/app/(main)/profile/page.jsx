@@ -4,7 +4,6 @@ import { UpdateProfile } from "@/components/homepage/UpdateModal";
 import { authClient } from "@/lib/auth-client";
 import { Avatar } from "@heroui/react";
 import { useRouter } from "next/navigation";
-import { FaUserEdit } from "react-icons/fa";
 import { FiMail, FiUser, FiCalendar, FiLogOut } from "react-icons/fi";
 
 const ProfilePage = () => {
@@ -21,6 +20,7 @@ const ProfilePage = () => {
     <div className="h-[80vh] md:min-h-screen bg-gray-50 flex items-center justify-center px-4">
       <div className="w-full max-w-2xl bg-white shadow-lg rounded-2xl p-6 md:p-10">
         <div className="flex flex-col items-center text-center">
+        
           <Avatar className="w-24 h-24 rounded-full overflow-hidden border-2 border-blue-700">
             <Avatar.Image
               src={user?.image}
@@ -31,7 +31,7 @@ const ProfilePage = () => {
               {user?.name?.charAt(0)}
             </Avatar.Fallback>
           </Avatar>
-
+            
           <h1 className="mt-4 text-2xl font-bold text-gray-800">
             {user?.name}
           </h1>

@@ -13,8 +13,7 @@ import { FaGoogle } from "react-icons/fa";
 import { toast } from "react-toastify";
 
 const LoginPage = () => {
-
-   const handleGoogleLogin = async () => {
+  const handleGoogleLogin = async () => {
     const data = await authClient.signIn.social({
       provider: "google",
     });
@@ -49,7 +48,6 @@ const LoginPage = () => {
         </p>
 
         <Form onSubmit={handleLogin} className="flex flex-col gap-5">
-          {/* Email */}
           <TextField
             isRequired
             name="email"
@@ -66,7 +64,6 @@ const LoginPage = () => {
             <FieldError className="text-red-500 text-xs" />
           </TextField>
 
-          {/* Password */}
           <TextField
             isRequired
             minLength={8}
@@ -90,7 +87,6 @@ const LoginPage = () => {
             <FieldError className="text-red-500 text-xs" />
           </TextField>
 
-          {/* Buttons */}
           <div className="flex gap-3 mt-2">
             <Button
               type="submit"
@@ -107,28 +103,28 @@ const LoginPage = () => {
               Reset
             </Button>
           </div>
-          <div>
-            <Button
-             onClick={handleGoogleLogin}
-              type="submit"
-              className="w-full bg-black hover:bg-gray-700 text-white rounded-xl shadow-md transition"
-            >
-              <span>
-                <FaGoogle />
-              </span>
-              Login with google
-            </Button>
-          </div>
-
-          <div>
-            <h1>
-              Do not have a account ?{" "}
-              <span className="text-blue-500">
-                <Link href="/register"> Register </Link>{" "}
-              </span>
-            </h1>
-          </div>
         </Form>
+        <div>
+          <Button
+            onClick={handleGoogleLogin}
+            type="submit"
+            className="w-full bg-black hover:bg-gray-700 text-white rounded-xl shadow-md transition"
+          >
+            <span>
+              <FaGoogle />
+            </span>
+            Login with google
+          </Button>
+        </div>
+
+        <div>
+          <h1>
+            Do not have a account ?{" "}
+            <span className="text-blue-500">
+              <Link href="/register"> Register </Link>{" "}
+            </span>
+          </h1>
+        </div>
       </div>
     </div>
   );

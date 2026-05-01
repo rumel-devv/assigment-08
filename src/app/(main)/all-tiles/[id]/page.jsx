@@ -38,7 +38,7 @@ const TileDetailsPage = async ({ params }) => {
             alt={tile.title}
             width={500}
             height={500}
-            className="w-full h-[320px] md:h-[520px] object-cover group-hover:scale-105 transition duration-500"
+            className="w-full h-80 md:h-130 object-cover group-hover:scale-105 transition duration-500"
           />
 
 
@@ -74,8 +74,8 @@ const TileDetailsPage = async ({ params }) => {
                   key={index}
                   className={
                     index < Math.floor(tile.rating)
-                      ? "text-gray-300"
-                      : "text-yellow-500"
+                      ? "text-yellow-500"
+                      : "text-gray-300"
                   }
                 />
               ))}

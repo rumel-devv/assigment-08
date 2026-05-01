@@ -2,7 +2,6 @@
 
 import { authClient } from "@/lib/auth-client";
 import { Button, Input, Label, Modal, Surface, TextField } from "@heroui/react";
-import { BiEnvelope } from "react-icons/bi";
 import { FaUserEdit } from "react-icons/fa";
 
 export function UpdateProfile() {
@@ -27,7 +26,7 @@ export function UpdateProfile() {
             <Modal.CloseTrigger />
             <Modal.Header>
               <Modal.Icon className="bg-accent-soft text-accent-soft-foreground">
-                <BiEnvelope className="size-5" />
+                <FaUserEdit className="size-5" />
               </Modal.Icon>
               <Modal.Heading>Update Your Profile</Modal.Heading>
             </Modal.Header>
