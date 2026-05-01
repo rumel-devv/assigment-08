@@ -25,6 +25,7 @@ const Navbar = () => {
   const handleSignOut = async () => {
     await authClient.signOut();
     router.push('/')
+    router.refresh();
     setOpen(false);
   };
 
