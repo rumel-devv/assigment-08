@@ -114,11 +114,13 @@ const RegisterPage = () => {
           >
             Create Account
           </Button>
+          </Form>
+
           <div>
             <Button
              onClick={handleGoogleLogin}
               type="submit"
-              className="w-full bg-black hover:bg-gray-700 text-white rounded-xl shadow-md transition"
+              className="w-full bg-black hover:bg-gray-700 text-white rounded-xl shadow-md transition my-4"
             >
               <span>
                 <FaGoogle />
@@ -133,7 +135,7 @@ const RegisterPage = () => {
               Login
             </Link>
           </div>
-        </Form>
+       
       </div>
     </div>
   );
