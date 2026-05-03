@@ -1,57 +1,57 @@
-# 🧱 Tiles Gallery – A website to showcase  tiles.
+# 🚀 Tiles Gallery — Modern Tile Showcase Web App  
 
-A modern and responsive tile product showcase web application built using Next.js, Tailwind CSS, and dynamic JSON data.I used better auth to configure authentication.
+## 📌 Project Overview  
+Tiles Gallery is a modern and responsive web application designed to showcase different types of tiles in a clean and visually appealing way. Users can explore tile collections, view detailed information, and enjoy a smooth browsing experience.
 
----
-
-## 🚀 Live Features
-
-- Product listing page (All Tiles)  
-- Dynamic product details page  
-- Star rating system (React Icons)  
-- Stock availability system  
-- Optimized product images (Next.js Image)  
-- Modern UI with Tailwind CSS  
-- Fast performance (Next.js App Router)  
+This project highlights frontend development skills using modern technologies like Next.js and Tailwind CSS.
 
 ---
 
-## 🛠 Tech Stack
+## 🎯 Purpose  
+The main goal of this project is to:
 
-- Next.js (App Router)  
+- Practice real-world frontend development  
+- Build a portfolio-ready UI  
+- Learn dynamic routing in Next.js  
+- Display products in a structured gallery format  
+
+---
+
+## 🌐 Live URL  
+👉 https://assigment-08-chi.vercel.app  
+
+---
+
+## ✨ Key Features  
+
+- 🖼️ Tiles Gallery Display  
+- 🔍 Individual Tile Details Page  
+- ⚡ Fast Performance with Next.js  
+- 📱 Fully Responsive Design  
+- 🎨 Clean & Modern UI  
+- 🔗 Dynamic Routing  
+- ⭐ Smooth User Experience  
+- 🔔 Toast Notifications (React Toastify)  
+
+---
+
+## 🛠️ Technologies Used  
+
+- Next.js    
 - Tailwind CSS  
-- JavaScript (ES6+)  
-- Next.js Image Optimization  
+- Framer Motion  
 - React Icons  
+- Better auth 
+- Mongodb  
 
 ---
 
-## ✨ Key Features
-
-### Product Details Page
-- Dynamic routing using params  
-- Image showcase  
-- Hover zoom effect  
-
-### Rating System
-- Star-based rating (0–5 stars)  
-- Dynamic rendering  
-
-### Product Information
-- Material, category, dimensions  
-- Stock availability  
-
-### Pricing Section
-- Dynamic pricing  
-- Disabled button when out of stock  
+## 📦 NPM Packages Used  
+ 
+- tailwindcss  
+- framer-motion  
+- react-icons  
+- react-toastify  
 
 ---
 
-## 🚀 What I Learned
-
-- Next.js App Router  
-- Dynamic routing with params  
-- JSON data handling  
-- Tailwind CSS UI design  
-- Image optimization  
-- Component-based architecture  
