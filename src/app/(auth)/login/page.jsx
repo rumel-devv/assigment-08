@@ -29,11 +29,12 @@ const LoginPage = () => {
       callbackURL: "/",
     });
 
-    if (error) {
-      toast.error(error.message);
-    } else {
+    if (!error) {
       toast.success("Login Successful");
     }
+      else{
+        toast.error(error.message);
+      }
   };
 
   return (

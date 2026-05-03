@@ -1,9 +1,10 @@
 "use client";
 
-import { UpdateProfile } from "@/components/homepage/UpdateModal";
 import { authClient } from "@/lib/auth-client";
 import { Avatar } from "@heroui/react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { FaUserEdit } from "react-icons/fa";
 import { FiMail, FiUser, FiCalendar, FiLogOut } from "react-icons/fi";
 
 const ProfilePage = () => {
@@ -73,7 +74,16 @@ const ProfilePage = () => {
             <FiLogOut />
             Logout
           </button>
-          <UpdateProfile />
+          <Link href='/updateProfile' >
+           <button
+            className="flex items-center cursor-pointer gap-2 bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-lg transition"
+          >
+            <FaUserEdit/>
+            Update Profile
+          </button>
+          </Link>
+         
+         
         </div>
       </div>
     </div>
